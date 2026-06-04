@@ -41,7 +41,7 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
             text: "Van Inspection",
             textSize: 24,
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.1,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -162,22 +162,28 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
             textSize: 24,
           ),
           SizedBox(height: 70,),
-          TextWidget(text: "Van Inspection Forms History", textSize: 24,)
-        ],
-      ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-              width: 120,
-              height: 56,
-              child: ButtonWidget(buttonText: "Drafts", textSize: 16, buttonIcon: Icon(Icons.edit), onTap: () {},)),
-          SizedBox(width: 30,),
-          SizedBox(
-              width: 156,
-              height: 56,
-              child: ButtonWidget(buttonText: "Submitted", textSize: 16, buttonIcon: Icon(Icons.check), onTap: () {},)),
+          Divider(
+            indent: 20,
+            endIndent: 20,
+          ),
+          SizedBox(height: 20,),
+          TextWidget(text: "Van Inspection Forms History", textSize: 24,),
+          SizedBox(height: 40),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                  width: 120,
+                  height: 56,
+                  child: ButtonWidget(buttonText: "Drafts", textSize: 16, buttonIcon: Icon(Icons.edit), onTap: () {},)),
+              SizedBox(width: 30,),
+              SizedBox(
+                  width: 156,
+                  height: 56,
+                  child: ButtonWidget(buttonText: "Submitted", textSize: 16, buttonIcon: Icon(Icons.check), onTap: () {},)),
 
+            ],
+          ),
         ],
       ),
 
