@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../screen/home_screen.dart';
+import '../screen/login_screen.dart';
 import '../screen/profile_screen.dart';
 import 'text.dart';
 
@@ -15,8 +17,12 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
           ),
           icon: Icon(Icons.menu),
           onSelected: (value) {
-            if (value == "profile") {
+            if(value == "home") {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+            } else if (value == "profile") {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ProfileScreen()));
+            }else if(value == "logout") {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
             }
 
           },
@@ -39,6 +45,17 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
                     Icon(Icons.person),
                     SizedBox(width: 10,),
                     TextWidget(text: "Profile",),
+                  ],
+                )
+            ),
+            const PopupMenuDivider(),
+            PopupMenuItem<String>(
+                value: "logout",
+                child: Row(
+                  children: [
+                    Icon(Icons.logout),
+                    SizedBox(width: 10,),
+                    TextWidget(text: "Logout",),
                   ],
                 )
             ),
