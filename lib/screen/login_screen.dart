@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/button.dart';
 import '../utils/text.dart';
-import '../utils/text_field.dart';
+import '../utils/auth_field.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,10 +12,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
 
-  void loginButton() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
-  }
+  final _emailCtrl = TextEditingController();
+  final _passCtrl = TextEditingController();
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,18 @@ class _LoginScreenState extends State<LoginScreen> {
                SizedBox(height: 20,),
                TextWidget(text: "App Name",),
                SizedBox(height: height * 0.15,),
-               TextFieldWidget(lText: "Email",),
-               SizedBox(height: 40,),
-               TextFieldWidget(lText: "Password",),
+               Form(
+                 key: _formKey,
+                 child: Column(
+                   children: [
+                     TextFieldWidget(lText: "Email", controller: _emailCtrl,),
+                     SizedBox(height: 40,),
+                     TextFieldWidget(lText: "Password", controller: _passCtrl,),
+                   ],
+                 ),
+               ),
                SizedBox(height: 20,),
-               ButtonWidget(buttonText: "Login", textSize: 30, buttonIcon: Icon(Icons.login, size: 30,), onTap: loginButton)
+               ButtonWidget(buttonText: "Login", textSize: 30, buttonIcon: Icon(Icons.login, size: 30,), onTap: () {})
              ],
            ),
          ),

@@ -1,3 +1,4 @@
+import 'package:dreams_app/screen/review_screen.dart';
 import 'package:flutter/material.dart';
 import '../utils/app_bar.dart';
 import '../utils/button.dart';
@@ -160,6 +161,9 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
             buttonText: "Next",
             buttonIcon: Icon(Icons.arrow_forward, size: 24,),
             textSize: 24,
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => ReviewScreen()));
+            },
           ),
           SizedBox(height: 70,),
           Divider(
