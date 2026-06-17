@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../screen/home_screen.dart';
+import 'text.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String buttonText;
@@ -25,3 +26,30 @@ class ButtonWidget extends StatelessWidget {
     );
   }
 }
+
+class FilledButtonWidget extends StatelessWidget {
+  final String buttonText;
+  final double? textSize;
+  const FilledButtonWidget({super.key, required this.buttonText, this.textSize});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      // height: 50,
+      child: FilledButton(
+          style: FilledButton.styleFrom(
+            // shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.circular(5)
+            // )
+          ),
+          onPressed: () {}, child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          TextWidget(text: buttonText, textSize: textSize,),
+          Icon(Icons.arrow_forward, size: 25,)
+        ],
+      )),
+    );
+  }
+}
+
