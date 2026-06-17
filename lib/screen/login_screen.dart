@@ -17,8 +17,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailCtrl = TextEditingController();
   final _passCtrl = TextEditingController();
 
-
-
+  void _login() {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,18 @@ class _LoginScreenState extends State<LoginScreen> {
                  ),
                ),
                SizedBox(height: 20,),
-               ButtonWidget(buttonText: "Login", textSize: 30, buttonIcon: Icon(Icons.login, size: 30,), onTap: () {})
+               FilledButton(
+                   style: FilledButton.styleFrom(
+                       fixedSize: const Size(200, 86)
+                   ),
+                   onPressed: _login, child: Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   TextWidget(text: "Login", textSize: 30,),
+                   SizedBox(width: 10,),
+                   Icon(Icons.logout, size: 30,)
+                 ],
+               ))
              ],
            ),
          ),
