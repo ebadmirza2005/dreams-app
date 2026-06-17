@@ -16,7 +16,9 @@ class ProfileScreen extends StatelessWidget {
             Align(
               alignment: Alignment.bottomLeft,
               child: IconButton(
-                  onPressed: () {}, icon: Container(
+                  onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                  }, icon: Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
