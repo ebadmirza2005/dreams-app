@@ -26,7 +26,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: IconButton(
-                onPressed: () {}, icon: Container(
+                onPressed: () => Navigator.of(context).pop(), icon: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
