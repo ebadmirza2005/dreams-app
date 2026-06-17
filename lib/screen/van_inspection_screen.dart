@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/app_bar.dart';
 import '../utils/button.dart';
 import '../utils/text.dart';
+import 'home_screen.dart';
 
 class VanInspectionScreen extends StatefulWidget {
   const VanInspectionScreen({super.key});
@@ -29,7 +30,9 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: IconButton(
-                onPressed: () {}, icon: Container(
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                }, icon: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,

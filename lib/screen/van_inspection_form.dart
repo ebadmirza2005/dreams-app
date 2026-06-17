@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app_bar.dart';
+import '../utils/button.dart';
 import '../utils/text.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class VanInspectionForm extends StatefulWidget {
   const VanInspectionForm({super.key});
@@ -11,126 +13,205 @@ class VanInspectionForm extends StatefulWidget {
 }
 
 class _VanInspectionFormState extends State<VanInspectionForm> {
-  double _currentHeight = 0;
-  final double _expandedHeight = 200;
-
-  bool _isExpanded = false;
-
-  void _expandOnChanged() {
-    var isExpanded = _currentHeight == _expandedHeight;
-    setState(() {
-      _currentHeight = isExpanded ? 0 : _expandedHeight;
-      _isExpanded = !_isExpanded;
-    });
+  Future<void> viewDetails() {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Align(
+              alignment: Alignment.center,
+              child: TextWidget(text: "Vehicle Details", textSize: 20)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextWidget(text: "Vehicle No:"),
+                      TextWidget(text: "KX-1339"),
+                    ],
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.2,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextWidget(text: "Vehicle Type:"),
+                      TextWidget(text: "Suzuki"),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 20,),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextWidget(text: "Vehicle Route"),
+                  TextWidget(text: "Nasar Pur, Tando Soomro", textSize: 18,)
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextWidget(text: "Driver"),
+                      TextWidget(text: "KX-1339", textSize: 18,)
+                    ],
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.2,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextWidget(text: "CNIC"),
+                      TextWidget(text: "Suzuki", textSize: 18,)
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: TextWidget(text: "Close"),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: IconButton(
-                onPressed: () {},
-                icon: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xff005baa),
+       body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: IconButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color(0xff005baa),
+                    ),
+                    child: const Icon(Icons.arrow_back, color: Colors.white),
                   ),
-                  child: const Icon(Icons.arrow_back, color: Colors.white),
                 ),
               ),
-            ),
-            TextWidget(text: "Van Inspection Form", textSize: 24),
-            const SizedBox(height: 20),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextWidget(text: "Vehicle Details"),
-                  const SizedBox(height: 10),
-
-                  GestureDetector(
-                    onTap: _expandOnChanged,
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffe6e0e9),
-                        borderRadius: BorderRadius.only(
-                          topLeft: const Radius.circular(12),
-                          topRight: const Radius.circular(12),
-                          bottomLeft: Radius.circular(_currentHeight == 0 ? 12 : 0),
-                          bottomRight: Radius.circular(_currentHeight == 0 ? 12 : 0),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.06),
-                            blurRadius: 10,
-                            spreadRadius: 1,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      padding: const EdgeInsets.only(
-                        top: 30,
-                        left: 20,
-                        bottom: 10,
-                        right: 5,
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  TextWidget(text: "Vehicle No:"),
-                                  TextWidget(text: "KX-1339", textSize: 18)
-                                ],
-                              ),
-                              SizedBox(width: MediaQuery.of(context).size.width * 0.35,),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  TextWidget(text: "Vehicle Type:"),
-                                  TextWidget(text: "Suzuki", textSize: 18)
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 10,),
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: SizedBox(
-                              width: 110.0,
-                              child: OutlinedButton(onPressed: () {}, child: Row(
-                                    children: [
-                                      Icon(Icons.visibility),
-                                      SizedBox(width: 10,),
-                                      TextWidget(text: "View"),
-
-
-                                    ],
-                                  )),
-                            ),
-                          )
-
-                        ],
-                      )
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: TextWidget(text: "Van Inspection Form", textSize: 24),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 25),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextWidget(text: "Vehicle Details", textSize: 18),
+                        OutlinedButton.icon(
+                          onPressed: viewDetails,
+                          icon: const Icon(Icons.visibility),
+                          label: TextWidget(text: "View"),
+                          style: OutlinedButton.styleFrom(
+                            side: const BorderSide(color: Color(0xff005baa)),
+                          ),
+                        ),
+
+                      ],
+                    ),
+
+                    const SizedBox(height: 10),
+                    SizedBox(height: 20,),
+                    TextWidget(text: "Sections", textSize: 20,),
+                    FilledButtonWidget(buttonText: "Section 1: Vehicle Parts", textSize: 20,),
+                    SizedBox(height: 10,),
+                    FilledButtonWidget(buttonText: "Section 2: Documents", textSize: 20),
+                    SizedBox(height: 10,),
+                    FilledButtonWidget(buttonText: "Section 3: Personal Details", textSize: 20),
+                    SizedBox(height: 20,),
+                    TextWidget(text: "Van Image w/ Driver", textSize: 18,),
+                    SizedBox(height: 20,),
+                    DottedBorder(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 180,
+                        decoration: BoxDecoration(
+                          color: Color(0xffe6e0e9),
+                        ),
+                        child: Column(
+                          children: [
+                            SizedBox(height: 15,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                OutlinedButton.icon(
+                                  style: OutlinedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10)
+                                      )
+                                  ),
+                                  onPressed: () {}, label: TextWidget(text: "Upload Image"), icon: Icon(Icons.upload),)
+                              ],
+                            ),
+                            SizedBox(height: 15,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                // TextWidget(text: "----------------------------------- "),
+                                Divider(),
+                                TextWidget(text: "OR "),
+                                Divider()
+                                // TextWidget(text: "----------------------------------- "),
+                              ],
+                            ),
+                            SizedBox(height: 15,),
+                            OutlinedButton.icon(
+                              style: OutlinedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)
+                                  )
+                              ),
+                              onPressed: () {}, label: TextWidget(text: "Open Camera"), icon: Icon(Icons.camera_alt),)
+
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Divider(),
+                    Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        width: 200,
+                        child: FilledButton(
+                            onPressed: () {}, child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            TextWidget(text: "Submit", textSize: 20,),
+                            Icon(Icons.send)
+                          ],
+                        )),
+                      ),
+                    )
+
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+
+            ],
+          ),
+
     );
   }
 }
