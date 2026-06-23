@@ -26,7 +26,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
           Align(
             alignment: Alignment.bottomLeft,
             child: IconButton(
-                onPressed: () => Navigator.of(context).pop(), icon: Container(
+                onPressed: () => context.go('/van-inspection'), icon: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -59,7 +59,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
                             TextWidget(text: "KX-1339", textSize: 18)
                           ],
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.4,),
+                        SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -103,7 +103,18 @@ class _ReviewScreenState extends State<ReviewScreen> {
             ),
           ),
           SizedBox(height: 20,),
-          ButtonWidget(buttonText: "Start Inspection", textSize: 18, buttonIcon: Icon(Icons.arrow_forward, size: 20,), onTap: _startInspection,)
+          FilledButton(
+              style: FilledButton.styleFrom(
+                  fixedSize: const Size(230, 86)
+              ),
+              onPressed: () => context.go('/van-form'), child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextWidget(text: "Start Inspection", textSize: 18,),
+              SizedBox(width: 10,),
+              Icon(Icons.arrow_forward, size: 18,)
+            ],
+          )),
         ],
       ),
     );

@@ -48,18 +48,29 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.2,),
-          Column(
+          Padding(padding: EdgeInsets.all(10),
+          child: Column(
             children: [
-              ButtonWidget(buttonText: "Van Inspection", textSize: 22, onTap: vanInspectionButton,),
-              SizedBox(height: 10,),
-              ButtonWidget(buttonText: "Coming Soon", textSize: 22, onTap: () {},),
-              SizedBox(height: 10,),
-              ButtonWidget(buttonText: "Coming Soon", textSize: 22, onTap: () {},),
-              SizedBox(height: 10,),
-              ButtonWidget(buttonText: "Coming Soon", textSize: 22, onTap: () {},),
+              Row(
+                children: [
+                  Expanded(child: ButtonWidget(buttonText: "Van Inspection", textSize: 17, onTap: vanInspectionButton,),),
+                  SizedBox(width: 9,),
+                  Expanded(child: ButtonWidget(buttonText: "Coming Soon", textSize: 17, onTap: () {},),),
+                  SizedBox(height: 9,),
+                ],
+              ),
+              SizedBox(height: 20,),
+              Row(
+                children: [
+                  Expanded(child: ButtonWidget(buttonText: "Coming Soon", textSize: 17, onTap: () {},),),
+                  SizedBox(width: 9,),
+                  Expanded(child: ButtonWidget(buttonText: "Coming Soon", textSize: 17, onTap: () {},),),
+                  SizedBox(height: 9,),
+                ],
+              ),
             ],
+          ),
           )
-
         ],
       ),
     );

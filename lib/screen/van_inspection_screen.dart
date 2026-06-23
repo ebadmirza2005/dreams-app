@@ -31,7 +31,7 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
             alignment: Alignment.bottomLeft,
             child: IconButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                  context.go('/');
                 }, icon: Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -160,14 +160,18 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
             ],
           ),
           SizedBox(height: 40,),
-          ButtonWidget(
-            buttonText: "Next",
-            buttonIcon: Icon(Icons.arrow_forward, size: 24,),
-            textSize: 24,
-            onTap: () {
-              context.go('/review');
-            },
-          ),
+          FilledButton(
+              style: FilledButton.styleFrom(
+                  fixedSize: const Size(200, 86)
+              ),
+              onPressed: () => context.go('/review'), child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextWidget(text: "Next", textSize: 24,),
+              SizedBox(width: 10,),
+              Icon(Icons.arrow_forward, size: 24,)
+            ],
+          )),
           SizedBox(height: 70,),
           Divider(
             indent: 20,
