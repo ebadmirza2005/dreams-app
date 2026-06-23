@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../screen/home_screen.dart';
 import '../screen/login_screen.dart';
 import '../screen/profile_screen.dart';
@@ -18,9 +19,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
           icon: Icon(Icons.menu),
           onSelected: (value) {
             if(value == "home") {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+              context.go('/home');
             } else if (value == "profile") {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => ProfileScreen()));
+              context.go('/profile');
             }else if(value == "logout") {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
             }
