@@ -86,8 +86,6 @@ class _VehiclePartsState extends State<VehicleParts> with TickerProviderStateMix
                     Padding(
                         padding: EdgeInsets.only(left: 10),
                         child: TextWidget(text: "Section 1: Vehicle Parts", textSize: 16)),
-                    // const SizedBox(height: 5),
-
                     Expanded(
                       child: Padding(
                         padding: EdgeInsets.all(10),

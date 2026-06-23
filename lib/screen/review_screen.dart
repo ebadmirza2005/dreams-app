@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../utils/app_bar.dart';
-import '../utils/button.dart';
 import '../utils/text.dart';
-import 'van_inspection_form.dart';
 
 class ReviewScreen extends StatefulWidget {
   const ReviewScreen({super.key});
@@ -15,9 +11,6 @@ class ReviewScreen extends StatefulWidget {
 
 class _ReviewScreenState extends State<ReviewScreen> {
 
-  void _startInspection() {
-   context.go('van-form');
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
