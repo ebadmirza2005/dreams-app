@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/button.dart';
@@ -15,12 +16,11 @@ class ReviewScreen extends StatefulWidget {
 class _ReviewScreenState extends State<ReviewScreen> {
 
   void _startInspection() {
-    Navigator.push(context, MaterialPageRoute(builder: (_) => VanInspectionForm()));
+   context.go('van-form');
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
       body: Column(
         children: [
           Align(

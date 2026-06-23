@@ -1,4 +1,6 @@
+import 'package:dreams_app/screen/vehicle_parts.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../utils/app_bar.dart';
 import '../utils/button.dart';
@@ -88,7 +90,6 @@ class _VanInspectionFormState extends State<VanInspectionForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
        body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -134,11 +135,13 @@ class _VanInspectionFormState extends State<VanInspectionForm> {
                     const SizedBox(height: 10),
                     SizedBox(height: 20,),
                     TextWidget(text: "Sections", textSize: 20,),
-                    FilledButtonWidget(buttonText: "Section 1: Vehicle Parts", textSize: 20,),
+                    FilledButtonWidget(buttonText: "Section 1: Vehicle Parts", textSize: 20, onTap: () {
+                      context.go('/vehicle-parts');
+                    },),
                     SizedBox(height: 10,),
-                    FilledButtonWidget(buttonText: "Section 2: Documents", textSize: 20),
+                    FilledButtonWidget(buttonText: "Section 2: Documents", textSize: 20, onTap: () {},),
                     SizedBox(height: 10,),
-                    FilledButtonWidget(buttonText: "Section 3: Personal Details", textSize: 20),
+                    FilledButtonWidget(buttonText: "Section 3: Personal Details", textSize: 20, onTap: () {},),
                     SizedBox(height: 20,),
                     TextWidget(text: "Van Image w/ Driver", textSize: 18,),
                     SizedBox(height: 20,),

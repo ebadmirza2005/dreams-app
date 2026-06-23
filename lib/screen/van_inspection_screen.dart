@@ -1,5 +1,6 @@
 import 'package:dreams_app/screen/review_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../utils/app_bar.dart';
 import '../utils/button.dart';
 import '../utils/text.dart';
@@ -24,7 +25,6 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(),
       body: Column(
         children: [
           Align(
@@ -165,7 +165,7 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
             buttonIcon: Icon(Icons.arrow_forward, size: 24,),
             textSize: 24,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (_) => ReviewScreen()));
+              context.go('/review');
             },
           ),
           SizedBox(height: 70,),

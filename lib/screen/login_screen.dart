@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../utils/button.dart';
 import '../utils/text.dart';
 import '../utils/auth_field.dart';
@@ -18,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passCtrl = TextEditingController();
 
   void _login() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+    context.go('/');
   }
 
   @override
