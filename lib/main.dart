@@ -65,21 +65,21 @@ final GoRouter _router = GoRouter(
           ),
           GoRoute(
             path: '/van-form',
-            name: 'vanForm',
+            name: 'van-form',
             builder: (BuildContext context, GoRouterState state) {
               return const VanInspectionForm();
             },
           ),
           GoRoute(
             path: '/van-inspection',
-            name: 'vanInspection',
+            name: 'van-inspection',
             builder: (BuildContext context, GoRouterState state) {
               return const VanInspectionScreen();
             },
           ),
           GoRoute(
             path: '/vehicle-parts',
-            name: 'vehicleParts',
+            name: 'vehicle-parts',
             builder: (BuildContext context, GoRouterState state) {
               return const VehicleParts();
             },

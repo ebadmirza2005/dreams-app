@@ -1,9 +1,7 @@
 import 'package:dreams_app/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../utils/app_bar.dart';
 import '../utils/text.dart';
-import 'van_inspection_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
