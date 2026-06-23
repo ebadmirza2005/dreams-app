@@ -30,7 +30,8 @@ class ButtonWidget extends StatelessWidget {
 class FilledButtonWidget extends StatelessWidget {
   final String buttonText;
   final double? textSize;
-  const FilledButtonWidget({super.key, required this.buttonText, this.textSize});
+  final VoidCallback? onTap;
+  const FilledButtonWidget({super.key, required this.buttonText, this.textSize, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class FilledButtonWidget extends StatelessWidget {
             //   borderRadius: BorderRadius.circular(5)
             // )
           ),
-          onPressed: () {}, child: Row(
+          onPressed: onTap, child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextWidget(text: buttonText, textSize: textSize,),
