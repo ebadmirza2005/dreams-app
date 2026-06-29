@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                SizedBox(height: height * 0.1,),
                Image.asset("assets/FESF.png", width: width * 0.5,),
                SizedBox(height: 20,),
-               TextWidget(text: "App Name",),
+               TextWidget(text: "Dreams Operation",),
                SizedBox(height: height * 0.15,),
                Form(
                  key: _formKey,

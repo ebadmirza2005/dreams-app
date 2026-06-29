@@ -61,7 +61,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
 
         ),
       // }, icon: Icon(Icons.menu)),
-      title: Text("App Name"),
+      title: Text("Dreams Operations"),
       centerTitle: true,
 
     );

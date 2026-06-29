@@ -105,7 +105,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
             children: [
               TextWidget(text: "Start Inspection", textSize: 18,),
               SizedBox(width: 10,),
-              Icon(Icons.arrow_forward, size: 18,)
+              Icon(Icons.arrow_forward, size: 24,)
             ],
           )),
         ],
