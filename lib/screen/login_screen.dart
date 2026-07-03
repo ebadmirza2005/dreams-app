@@ -26,38 +26,40 @@ class _LoginScreenState extends State<LoginScreen> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
        body: SafeArea(
-         child: Center(
-           child: Column(
-             children: [
-               SizedBox(height: height * 0.1,),
-               Image.asset("assets/FESF.png", width: width * 0.5,),
-               SizedBox(height: 20,),
-               TextWidget(text: "Dreams Operation",),
-               SizedBox(height: height * 0.15,),
-               Form(
-                 key: _formKey,
-                 child: Column(
-                   children: [
-                     TextFieldWidget(lText: "Email", controller: _emailCtrl,),
-                     SizedBox(height: 40,),
-                     TextFieldWidget(lText: "Password", controller: _passCtrl,),
-                   ],
-                 ),
-               ),
-               SizedBox(height: 20,),
-               FilledButton(
-                   style: FilledButton.styleFrom(
-                       fixedSize: const Size(200, 86)
+         child: SingleChildScrollView(
+           child: Center(
+             child: Column(
+               children: [
+                 SizedBox(height: height * 0.1,),
+                 Image.asset("assets/FESF.png", width: width * 0.5,),
+                 SizedBox(height: 20,),
+                 TextWidget(text: "Dreams Operation",),
+                 SizedBox(height: height * 0.15,),
+                 Form(
+                   key: _formKey,
+                   child: Column(
+                     children: [
+                       TextFieldWidget(lText: "Email", controller: _emailCtrl,),
+                       SizedBox(height: 40,),
+                       TextFieldWidget(lText: "Password", controller: _passCtrl,),
+                     ],
                    ),
-                   onPressed: _login, child: Row(
-                 mainAxisAlignment: MainAxisAlignment.center,
-                 children: [
-                   TextWidget(text: "Login", textSize: 30,),
-                   SizedBox(width: 10,),
-                   Icon(Icons.logout, size: 30,)
-                 ],
-               ))
-             ],
+                 ),
+                 SizedBox(height: 20,),
+                 FilledButton(
+                     style: FilledButton.styleFrom(
+                         fixedSize: const Size(200, 86)
+                     ),
+                     onPressed: _login, child: Row(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                   children: [
+                     TextWidget(text: "Login", textSize: 30,),
+                     SizedBox(width: 10,),
+                     Icon(Icons.logout, size: 30,)
+                   ],
+                 ))
+               ],
+             ),
            ),
          ),
 
