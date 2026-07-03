@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../screen/login_screen.dart';
+import '../screens/login_screen.dart';
 import 'text.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'screen/home_screen.dart';
-import 'screen/login_screen.dart';
-import 'screen/profile_screen.dart';
-import 'screen/review_screen.dart';
-import 'screen/van_inspection_form.dart';
-import 'screen/van_inspection_screen.dart';
-import 'screen/vehicle_parts.dart';
+import 'screens/home_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/profile_screen.dart';
+import 'screens/review_screen.dart';
+import 'screens/van_inspection_form.dart';
+import 'screens/van_inspection_screen.dart';
+import 'screens/vehicle_parts.dart';
 import 'utils/app_bar.dart';
 
 void main() {
