@@ -1,57 +1,87 @@
 import 'package:flutter/material.dart';
 import 'text.dart';
 
-class ButtonWidget extends StatelessWidget {
+class DefaultButton extends StatelessWidget {
   final String buttonText;
-  final double textSize;
-  final Icon? buttonIcon;
+  final IconData? buttonIcon;
   final VoidCallback? onTap;
-  const ButtonWidget({
+
+  const DefaultButton({
     super.key,
     required this.buttonText,
-    this.buttonIcon,
-    required this.textSize,
     this.onTap,
+    this.buttonIcon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: FilledButton.icon(
-        icon: buttonIcon,
-        style: FilledButton.styleFrom(fixedSize: const Size(200, 86)),
-        onPressed: onTap,
-        label: Text(buttonText, style: TextStyle(fontSize: textSize)),
+    return FilledButton(
+      style: FilledButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      ),
+      onPressed: onTap,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextWidget(
+            text: buttonText,
+            textSize: 18,
+          ),
+          if (buttonIcon != null) ...[
+            const SizedBox(width: 10),
+            Icon(buttonIcon, size: 25,),
+          ],
+        ],
       ),
     );
   }
 }
 
-class FilledButtonWidget extends StatelessWidget {
+class FullWidthButton extends StatelessWidget {
   final String buttonText;
-  final double? textSize;
+  final IconData? buttonIcon;
   final VoidCallback? onTap;
-  const FilledButtonWidget({
-    super.key,
-    required this.buttonText,
-    this.textSize,
-    this.onTap,
-  });
+  const FullWidthButton({super.key, required this.buttonText, this.buttonIcon, this.onTap });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.9,
       child: FilledButton(
-        style: FilledButton.styleFrom(),
+        style: FilledButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+        ),
         onPressed: onTap,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            TextWidget(text: buttonText, textSize: textSize),
-            Icon(Icons.arrow_forward, size: 25),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            right: 15
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              TextWidget(
+                text: buttonText,
+                textSize: 18,
+              ),
+              if (buttonIcon != null) ...[
+                const SizedBox(width: 10),
+                Icon(buttonIcon, size: 25,),
+              ],
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+
+

@@ -1,4 +1,6 @@
+import 'package:dreams_app/utils/button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../utils/text.dart';
 import '../utils/auth_field.dart';
 import 'home_screen.dart';
@@ -45,15 +47,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       floatingActionButton:  SizedBox(
         width: MediaQuery.of(context).size.width * 0.9,
-        child: FilledButton(
-            style: FilledButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8)
-              )
-            ),
-            onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
-            }, child: Text("Back to Home")),
+        child: DefaultButton(buttonText: "Back to Home", onTap: () => context.go("/"),),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

@@ -1,3 +1,4 @@
+import 'package:dreams_app/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../utils/text.dart';
@@ -96,18 +97,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
             ),
           ),
           SizedBox(height: 20,),
-          FilledButton(
-              style: FilledButton.styleFrom(
-                  fixedSize: const Size(230, 86)
-              ),
-              onPressed: () => context.go('/van-form'), child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextWidget(text: "Start Inspection", textSize: 18,),
-              SizedBox(width: 10,),
-              Icon(Icons.arrow_forward, size: 24,)
-            ],
-          )),
+          DefaultButton(buttonText: "Start Inspection", buttonIcon: Icons.arrow_forward, onTap: () => context.go('/van-form'), )
         ],
       ),
     );

@@ -105,136 +105,100 @@ class _VanInspectionFormState extends State<VanInspectionForm> {
           builder: (context, constraints) {
             final double spacing = constraints.maxHeight * 0.012;
 
-            return Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: IconButton(
-                          onPressed: () => context.go('/review'), icon: Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xff005baa),
-                          ),
-                          child: Icon(Icons.arrow_back, color: Colors.white,))),
-                    ),
-                    SizedBox(height: spacing),
-                    Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Column(
-                        children: [
-                            Center(
-                              child: TextWidget(text: "Van Inspection Form", textSize: 20),
+            return SingleChildScrollView(
+              child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: IconButton(
+                            onPressed: () => context.go('/review'), icon: Container(
+                            padding: EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color(0xff005baa),
                             ),
-                          SizedBox(height: spacing),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              TextWidget(text: "Vehicle Details", textSize: 16),
-                              OutlinedButton.icon(
-                                onPressed: viewDetails,
-                                icon: const Icon(Icons.visibility, size: 16),
-                                label: TextWidget(text: "View", textSize: 14),
-                                style: OutlinedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                                  side: const BorderSide(color: Color(0xff005baa)),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(height: spacing),
-
-                          TextWidget(text: "Sections", textSize: 16),
-                          const SizedBox(height: 4),
-
-                          FilledButtonWidget(buttonText: "Section 1: Vehicle Parts", textSize: 15, onTap: () {
-                            context.go('/vehicle-parts');
-                          }),
-                          const SizedBox(height: 6),
-                          FilledButtonWidget(buttonText: "Section 2: Documents", textSize: 15, onTap: () {}),
-                          const SizedBox(height: 6),
-                          FilledButtonWidget(buttonText: "Section 3: Personal Details", textSize: 15, onTap: () {}),
-
-                          SizedBox(height: spacing),
-
-                          TextWidget(text: "Van Image w/ Driver", textSize: 16),
-                          const SizedBox(height: 4),
-
-                          DottedBorder(
-                            child: Container(
-                              height: 150,
-                              width: double.infinity,
-                              padding: const EdgeInsets.all(8),
-                              decoration: const BoxDecoration(
-                                color: Color(0xffe6e0e9),
-                              ),
-                              child: LayoutBuilder(
-                                  builder: (context, boxConstraints) {
-                                    return Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        OutlinedButton.icon(
-                                          style: OutlinedButton.styleFrom(
-                                              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(8)
-                                              )
-                                          ),
-                                          onPressed: () {},
-                                          label: TextWidget(text: "Upload Image", textSize: 13),
-                                          icon: const Icon(Icons.upload, size: 16),
-                                        ),
-                                        const Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Expanded(child: Divider(endIndent: 8)),
-                                            Text("OR", style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.grey)),
-                                            Expanded(child: Divider(indent: 8))
-                                          ],
-                                        ),
-                                        OutlinedButton.icon(
-                                          style: OutlinedButton.styleFrom(
-                                              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius: BorderRadius.circular(8)
-                                              )
-                                          ),
-                                          onPressed: () {},
-                                          label: TextWidget(text: "Open Camera", textSize: 13),
-                                          icon: const Icon(Icons.camera_alt, size: 16),
-                                        )
-                                      ],
-                                    );
-                                  }
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 25),
-                          const Divider(height: 1),
-                          const SizedBox(height: 25),
-                          Align(
-                            alignment: Alignment.center,
-                            child: SizedBox(
-                              width: 160,
-                              height: 40,
-                              child: FilledButton(
-                                onPressed: () {},
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    TextWidget(text: "Submit", textSize: 16),
-                                    const Icon(Icons.send, size: 16)
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                            child: Icon(Icons.arrow_back, color: Colors.white,))),
                       ),
-                    )
-                  ],
-                );
+                      SizedBox(height: spacing),
+                      Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                              Center(
+                                child: TextWidget(text: "Van Inspection Form", textSize: 20),
+                              ),
+                            SizedBox(height: spacing),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                TextWidget(text: "Vehicle Details", textSize: 16),
+                                OutlinedButton.icon(
+                                  onPressed: viewDetails,
+                                  icon: const Icon(Icons.visibility, size: 16),
+                                  label: TextWidget(text: "View", textSize: 14),
+                                  style: OutlinedButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                    side: const BorderSide(color: Color(0xff005baa)),
+                                  ),
+                                ),
+                              ],
+                            ),
+              
+                            SizedBox(height: spacing),
+              
+                            TextWidget(text: "Sections", textSize: 16),
+                            const SizedBox(height: 4),
+                            FullWidthButton(buttonText: "Section 1: Vehicle Parts", buttonIcon: Icons.arrow_forward, onTap: () => context.go('/vehicle-parts'),),
+                            const SizedBox(height: 6),
+                            FullWidthButton(buttonText: "Section 2: Documents", buttonIcon: Icons.arrow_forward, onTap: () => context.go('/documents')),
+                            const SizedBox(height: 6),
+                            FullWidthButton(buttonText: "Section 3: Personal Details", buttonIcon: Icons.arrow_forward, onTap: () => context.go('/personal-details')),
+              
+                            SizedBox(height: spacing),
+              
+                            TextWidget(text: "Van Image w/ Driver", textSize: 16),
+                            const SizedBox(height: 4),
+              
+                            DottedBorder(
+                              child: Container(
+                                height: 150,
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(8),
+                                decoration: const BoxDecoration(
+                                  color: Color(0xffe6e0e9),
+                                ),
+                                child: LayoutBuilder(
+                                    builder: (context, boxConstraints) {
+                                      return Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          OutlinedButton.icon(
+                                            style: OutlinedButton.styleFrom(
+                                                padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(8)
+                                                )
+                                            ),
+                                            onPressed: () {},
+                                            label: TextWidget(text: "Upload Image", textSize: 13),
+                                            icon: const Icon(Icons.upload, size: 16),
+                                          ),
+                                        ],
+                                      );
+                                    }
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 25),
+                            const Divider(height: 1),
+                            const SizedBox(height: 25),
+                            DefaultButton(buttonText: "Submit", buttonIcon: Icons.send, onTap: () {},),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+            );
           },
         ),
       ),

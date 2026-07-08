@@ -1,3 +1,4 @@
+import 'package:dreams_app/utils/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../utils/button.dart';
@@ -21,187 +22,67 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: IconButton(
-              onPressed: () {
-                context.go('/');
-              },
-              icon: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color(0xff005baa),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: IconButton(
+                onPressed: () {
+                  context.go('/');
+                },
+                icon: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color(0xff005baa),
+                  ),
+                  child: Icon(Icons.arrow_back, color: Colors.white),
                 ),
-                child: Icon(Icons.arrow_back, color: Colors.white),
               ),
             ),
-          ),
-          SizedBox(height: 15),
-          TextWidget(text: "Van Inspection", textSize: 24),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextWidget(text: "Select a Van"),
-              SizedBox(height: 10),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.9,
-                child: SearchAnchor(
-                  searchController: searchController,
-                  isFullScreen: false,
-                  viewConstraints: BoxConstraints(
-                    maxHeight: MediaQuery.of(context).size.height * 0.3,
-                  ),
-                  viewTrailing: [
-                    IconButton(
-                      onPressed: () {
-                        searchController.clear();
-                      },
-                      icon: Icon(Icons.close),
-                    ),
-                  ],
-                  builder: (BuildContext context, SearchController controller) {
-                    return SearchBar(
-                      controller: controller,
-                      padding: const WidgetStatePropertyAll<EdgeInsets>(
-                        EdgeInsets.symmetric(horizontal: 16.0),
-                      ),
-                      onTap: () {
-                        controller.openView();
-                      },
-                      onChanged: (_) {
-                        controller.openView();
-                      },
-                      hintText: "Driver name, vehicle number, or CNIC",
-                      trailing: <Widget>[Icon(Icons.search)],
-                    );
-                  },
-                  suggestionsBuilder:
-                      (BuildContext context, SearchController controller) {
-                        // return List<ListTile>.generate(5, (int index) {
-
-                        // final String item = 'item ${index}';
-                        // return ListTile(
-                        //   title: Text(item),
-                        //   onTap: () {
-                        //     setState(() {
-                        //       controller.closeView(item);
-                        //     });
-                        //   },
-                        // );
-                        // });
-                        return [
-                          Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.all(20),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(child: Text("A")),
-                                    SizedBox(width: 20),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        TextWidget(
-                                          text: "Ghulam Shabbir (KX-1339)",
-                                        ),
-                                        TextWidget(text: "CNIC: 4220145869879"),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.all(20),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(child: Text("A")),
-                                    SizedBox(width: 20),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        TextWidget(text: "Imam Bux (BMD-940)"),
-                                        TextWidget(text: "CNIC: 4220165668978"),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.all(20),
-                                child: Row(
-                                  children: [
-                                    CircleAvatar(child: Text("A")),
-                                    SizedBox(width: 20),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        TextWidget(text: "Nizam Din (JE-3224)"),
-                                        TextWidget(text: "CNIC: 4220155465623"),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ];
-                      },
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 40),
-          FilledButton(
-            style: FilledButton.styleFrom(fixedSize: const Size(200, 86)),
-            onPressed: () => context.go('/review'),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            SizedBox(height: 15),
+            TextWidget(text: "Van Inspection", textSize: 24),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextWidget(text: "Next", textSize: 24),
-                SizedBox(width: 10),
-                Icon(Icons.arrow_forward, size: 24),
+                TextWidget(text: "Select a Van"),
+                SizedBox(height: 10),
+                SearchBarWidget()
               ],
             ),
-          ),
-          SizedBox(height: 70),
-          Divider(indent: 20, endIndent: 20),
-          SizedBox(height: 20),
-          TextWidget(text: "Van Inspection Forms History", textSize: 24),
-          SizedBox(height: 40),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 120,
-                height: 56,
-                child: ButtonWidget(
-                  buttonText: "Drafts",
-                  textSize: 16,
-                  buttonIcon: Icon(Icons.edit),
-                  onTap: () {},
+            SizedBox(height: 40),
+            DefaultButton(buttonText: "Next", buttonIcon: Icons.arrow_forward, onTap: () => context.go("/review"),),
+            SizedBox(height: 20),
+            Divider(indent: 20, endIndent: 20),
+            TextWidget(text: "Van Inspection Forms History", textSize: 24),
+            SizedBox(height: 40),
+            Column(
+              children: [
+                Badge(
+                  label: const Text("3"),
+                  alignment: Alignment.topRight,
+                  child: DefaultButton(
+                    buttonText: "Drafts",
+                    buttonIcon: Icons.edit,
+                    onTap: () => context.go('/draft'),
+                  ),
                 ),
-              ),
-              SizedBox(width: 30),
-              SizedBox(
-                width: 156,
-                height: 56,
-                child: ButtonWidget(
-                  buttonText: "Submitted",
-                  textSize: 16,
-                  buttonIcon: Icon(Icons.check),
-                  onTap: () {},
-                ),
-              ),
-            ],
-          ),
-        ],
+
+                SizedBox(height: 15,),
+                Badge(
+                    label: const Text("1"),
+                    child: DefaultButton(buttonText: "Pending", buttonIcon: Icons.pending, onTap: () {},)),
+                SizedBox(height: 15,),
+                Badge(
+                    label: const Text("10"),
+                    child: DefaultButton(buttonText: "Submitted", buttonIcon: Icons.check, onTap: () {},)),
+                SizedBox(height: 15,),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

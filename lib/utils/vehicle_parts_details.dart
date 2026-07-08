@@ -1,9 +1,54 @@
+import 'package:dreams_app/utils/button.dart';
 import 'package:flutter/material.dart';
 import 'text.dart';
 
 class VehiclePartsDetails extends StatelessWidget {
   final int index;
   const VehiclePartsDetails({super.key, required this.index});
+
+  void _showRemarksDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+      return AlertDialog(
+        title: Column(
+          children: [
+            TextWidget(text: "Remarks", textSize: 20,),
+            SizedBox(height: 10,),
+            Container(
+              width: double.infinity,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: TextField(
+                  keyboardType: TextInputType.multiline,
+                  minLines: null,
+                  maxLines: 4,
+                  decoration: InputDecoration(
+                    hintText: "Enter Your Remarks Here...", hintStyle: TextStyle(
+                    fontSize: 14
+                  ) ,
+                    border: InputBorder.none
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Row(
+              children: [
+                Expanded(child: DefaultButton(buttonText: "Cancel", onTap: () => Navigator.of(context).pop(),)),
+                SizedBox(width: 5,),
+                Expanded(child: DefaultButton(buttonText: "Enter", onTap: () {},)),
+              ],
+            )
+
+
+          ],
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +77,9 @@ class VehiclePartsDetails extends StatelessWidget {
                 color: Color(0xff005baa),
                 size: 22,
               ),
-              onPressed: () {},
+              onPressed: () {
+                _showRemarksDialog(context);
+              },
             ),
           ],
         ),

@@ -16,7 +16,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
           icon: Icon(Icons.menu),
           onSelected: (value) {
             if(value == "home") {
-              context.go('/home');
+              context.go('/');
             } else if (value == "profile") {
               context.go('/profile');
             }else if(value == "logout") {
@@ -63,7 +63,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
       // }, icon: Icon(Icons.menu)),
       title: Text("Dreams Operations"),
       centerTitle: true,
-
     );
   }
 

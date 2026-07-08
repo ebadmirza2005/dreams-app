@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../utils/button.dart';
 import '../utils/text.dart';
 import '../utils/auth_field.dart';
 
@@ -46,18 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                    ),
                  ),
                  SizedBox(height: 20,),
-                 FilledButton(
-                     style: FilledButton.styleFrom(
-                         fixedSize: const Size(200, 86)
-                     ),
-                     onPressed: _login, child: Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   children: [
-                     TextWidget(text: "Login", textSize: 30,),
-                     SizedBox(width: 10,),
-                     Icon(Icons.logout, size: 30,)
-                   ],
-                 ))
+                 DefaultButton(buttonText: "Login", onTap: _login, buttonIcon: Icons.login, )
                ],
              ),
            ),

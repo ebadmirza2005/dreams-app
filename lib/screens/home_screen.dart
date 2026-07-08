@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(height: 20,),
           SizedBox(
             width: MediaQuery.of(context).size.width,
             child: Card(
@@ -51,23 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(child: ButtonWidget(buttonText: "Van Inspection", textSize: 17, onTap: vanInspectionButton,),),
-                  SizedBox(width: 9,),
-                  Expanded(child: ButtonWidget(buttonText: "Coming Soon", textSize: 17, onTap: () {},),),
-                  SizedBox(height: 9,),
-                ],
-              ),
-              SizedBox(height: 20,),
-              Row(
-                children: [
-                  Expanded(child: ButtonWidget(buttonText: "Coming Soon", textSize: 17, onTap: () {},),),
-                  SizedBox(width: 9,),
-                  Expanded(child: ButtonWidget(buttonText: "Coming Soon", textSize: 17, onTap: () {},),),
-                  SizedBox(height: 9,),
-                ],
-              ),
+              FullWidthButton(buttonText: "Van Inspection", onTap: vanInspectionButton,),
+              SizedBox(height: 10,),
+              FullWidthButton(buttonText: "Coming Soon", onTap: () {},),
+              SizedBox(height: 10,),
+              FullWidthButton(buttonText: "Coming Soon", onTap: () {},),
+              SizedBox(height: 10,),
+              FullWidthButton(buttonText: "Coming Soon", onTap: () {},),
             ],
           ),
           )

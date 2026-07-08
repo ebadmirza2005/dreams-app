@@ -1,7 +1,10 @@
+import 'package:dreams_app/screens/documents.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'screens/draft_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/personal_details.dart';
 import 'screens/profile_screen.dart';
 import 'screens/review_screen.dart';
 import 'screens/van_inspection_form.dart';
@@ -82,6 +85,27 @@ final GoRouter _router = GoRouter(
             name: 'vehicle-parts',
             builder: (BuildContext context, GoRouterState state) {
               return const VehicleParts();
+            },
+          ),
+          GoRoute(
+            path: '/documents',
+            name: 'documents',
+            builder: (BuildContext context, GoRouterState state) {
+              return const VehicleDocuments();
+            },
+          ),
+          GoRoute(
+            path: '/personal-details',
+            name: 'personal-details',
+            builder: (BuildContext context, GoRouterState state) {
+              return const PersonalDetails();
+            },
+          ),
+          GoRoute(
+            path: '/draft',
+            name: 'draft',
+            builder: (BuildContext context, GoRouterState state) {
+              return const DraftScreen();
             },
           ),
     ])
