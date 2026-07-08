@@ -32,8 +32,8 @@ samples, guidance on mobile development, and a full API reference.
 
 5. Change Menu Popup To Navigation Drawer
 6. Home Screen:
-   - Remove User Card
-   - Change Home Screen UI
+   - Remove User Card         (Done)
+   - Change Home Screen UI    
 
 7. Add a few things in the app bar of about user details and use it all screens in the app.
 8. Increse Button Size in form section screen.
