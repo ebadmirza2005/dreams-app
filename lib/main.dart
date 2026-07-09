@@ -18,11 +18,67 @@ void main() {
 
 class WidgetWrapper extends StatelessWidget {
   final Widget child;
-  const WidgetWrapper({super.key, required this.child});
+  final GoRouterState state;
+
+  const WidgetWrapper({super.key, required this.child, required this.state});
+
+  int _selectedIndexForPath(String path) {
+    switch (path) {
+      case '/profile':
+        return 1;
+      default:
+        return 0;
+    }
+  }
+
+  void _onDestinationSelected(BuildContext context, int index) {
+    switch (index) {
+      case 1:
+        context.go('/profile');
+        break;
+      case 2:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const LoginScreen()),
+        );
+        break;
+      default:
+        context.go('/');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SafeArea(
+        child: Drawer(
+          width: MediaQuery.of(context).size.width * 0.82,
+          child: SafeArea(
+            child: NavigationDrawer(
+              selectedIndex: _selectedIndexForPath(state.uri.path),
+              onDestinationSelected: (index) => _onDestinationSelected(context, index),
+              children: const [
+                SizedBox(height: 10,),
+                NavigationDrawerDestination(
+                  icon: Icon(Icons.home_outlined),
+                  selectedIcon: Icon(Icons.home),
+                  label: Text('Home'),
+                ),
+                NavigationDrawerDestination(
+                  icon: Icon(Icons.person_outline),
+                  selectedIcon: Icon(Icons.person),
+                  label: Text('Profile'),
+                ),
+                NavigationDrawerDestination(
+                  icon: Icon(Icons.logout, color: Colors.black),
+                  selectedIcon: Icon(Icons.logout, color: Colors.black),
+                  label: Text('Logout'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       appBar: AppBarWidget(),
       body: child,
     );
@@ -42,7 +98,7 @@ final GoRouter _router = GoRouter(
     ),
     ShellRoute(
         builder: (context, state, child) {
-          return WidgetWrapper(child: child);
+          return WidgetWrapper(state: state, child: child);
         },
         routes: <RouteBase>[
           GoRoute(
@@ -108,7 +164,7 @@ final GoRouter _router = GoRouter(
               return const DraftScreen();
             },
           ),
-    ])
+        ])
 
   ],
 );

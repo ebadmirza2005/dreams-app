@@ -18,28 +18,12 @@ samples, guidance on mobile development, and a full API reference.
 
 # Todo
 
-1. Roundness Decrease From Flutter Over All App  (Done)
-2. Van Inspection Screen: (Done)
-   - Three Button In One Row (Draft, Submitted, Pending) (Done) 
-   - Add Badges (Done)
-3. Inspection Form Main Screen: (Done)
-   - Add Single Button Upload Image (Done)
-   - In the section button change the styling of text in justify between (Done)
-4. Inspection Form / Section [x]: (Done) 
-   - Implement Remarks Dialog     (Done)
-   - Change Next/Prev Button UI   (Done)
-   - Create A Component Of Form Screen  (Done)
 
-5. Change Menu Popup To Navigation Drawer
-6. Home Screen:   (Done)
-   - Remove User Card         (Done)
 
-7. Add a few things in the app bar of about user details and use it all screens in the app. (Done)
-8. Increse Button Size in form section screen. (Done)
-10. increase the height of search feature.   (Done)
-11. The phone native back button fixed on the route to go back in the prev section.  (Done)
-12. In the Remarks Dialog Change Full Width Button To Text Button.   (Done)
-13. Fixed Scrollable Things  (Done)
+1. Change Menu Popup To Navigation Drawer
+2. Modules With Divider In Home Screen
+3. Add Icon On Button In Home Screen
+
 
 
 
