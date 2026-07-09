@@ -13,19 +13,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
         body: Column(
           children: [
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomeScreen()));
-                  }, icon: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xff005baa),
-                  ),
-                  child: Icon(Icons.arrow_back, color: Colors.white,))),
-            ),
+            IconButtonWidget(onTap: () => context.go('/'),),
             SizedBox(height: 40,),
             TextWidget(text: "Profile Settings", textSize: 25,),
             Image.asset("assets/img.png"),

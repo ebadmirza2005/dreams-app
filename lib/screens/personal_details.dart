@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../utils/button.dart';
+import '../utils/floating_action_button.dart';
 import '../utils/text.dart';
 import '../utils/vehicle_form.dart';
 import '../utils/vehicle_parts_details.dart';
@@ -64,21 +66,7 @@ class _PersonalDetailsState extends State<PersonalDetails> with TickerProviderSt
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                      onPressed: () => context.go('van-form'),
-                      icon: Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xff005baa),
-                        ),
-                        child: const Icon(Icons.arrow_back, color: Colors.white, size: 20),
-                      ),
-                    ),
-                  ),
-
+                  IconButtonWidget(onTap: () => context.go('van-form'),),
                   const SizedBox(height: 10),
                   Center(
                     child: TextWidget(text: "Van Inspection Form", textSize: 22),
@@ -97,34 +85,7 @@ class _PersonalDetailsState extends State<PersonalDetails> with TickerProviderSt
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Container(
-          constraints: const BoxConstraints(maxWidth: 550),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              FloatingActionButton(
-                heroTag: "btn_back",
-                onPressed: hasPreviousQuestions ? _loadPreviousQuestions : null,
-                backgroundColor: hasPreviousQuestions ? Color(0xff005baa) : Colors.grey.shade400,
-                child: const Icon(Icons.arrow_back, color: Colors.white),
-              ),
-              FloatingActionButton(
-                heroTag: "btn_next",
-                onPressed: _loadNextQuestions,
-                backgroundColor: Color(0xff005baa),
-                child: hasMoreQuestions
-                    ? const Icon(Icons.arrow_forward, color: Colors.white)
-                    : const Text(
-                  'Done',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+      floatingActionButton: FloatingActionButtonWidget()
     );
   }
 }

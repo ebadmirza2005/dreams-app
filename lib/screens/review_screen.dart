@@ -17,17 +17,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
     return Scaffold(
       body: Column(
         children: [
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: IconButton(
-                onPressed: () => context.go('/van-inspection'), icon: Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color(0xff005baa),
-                ),
-                child: Icon(Icons.arrow_back, color: Colors.white,))),
-          ),
+          IconButtonWidget(onTap: () => context.go('van-inspection'),),
           TextWidget(text: "Vehicle Summary", textSize: 24,),
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.9,

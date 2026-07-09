@@ -37,9 +37,9 @@ class VehiclePartsDetails extends StatelessWidget {
             SizedBox(height: 10,),
             Row(
               children: [
-                Expanded(child: DefaultButton(buttonText: "Cancel", onTap: () => Navigator.of(context).pop(),)),
+                Expanded(child: TextButton(onPressed: () => Navigator.of(context).pop(), child: Text("Cancel"),)),
                 SizedBox(width: 5,),
-                Expanded(child: DefaultButton(buttonText: "Enter", onTap: () {},)),
+                Expanded(child: TextButton(onPressed: () {}, child: Text("Enter"),)),
               ],
             )
 

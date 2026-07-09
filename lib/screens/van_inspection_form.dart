@@ -108,20 +108,9 @@ class _VanInspectionFormState extends State<VanInspectionForm> {
             return SingleChildScrollView(
               child: Column(
                     children: [
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: IconButton(
-                            onPressed: () => context.go('/review'), icon: Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xff005baa),
-                            ),
-                            child: Icon(Icons.arrow_back, color: Colors.white,))),
-                      ),
-                      SizedBox(height: spacing),
+                      IconButtonWidget(onTap: () => context.go('review'),),
                       Padding(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.only(left: 10, right: 10),
                         child: Column(
                           children: [
                               Center(

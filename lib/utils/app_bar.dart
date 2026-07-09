@@ -63,6 +63,19 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget{
       // }, icon: Icon(Icons.menu)),
       title: Text("Dreams Operations"),
       centerTitle: true,
+      bottom: PreferredSize(preferredSize: Size.fromHeight(20.0), child: Padding(
+        padding: EdgeInsets.only(
+          left: 28,
+          right: 20
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TextWidget(text: "14 - Ghulam Shabbir",),
+            TextWidget(text: "v2.0.1")
+          ],
+        ),
+      )),
     );
   }
 

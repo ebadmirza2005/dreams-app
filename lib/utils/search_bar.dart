@@ -25,7 +25,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
         searchController: searchController,
         isFullScreen: false,
         viewConstraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height * 0.3,
+          maxHeight: MediaQuery.of(context).size.height * 0.8,
         ),
         viewTrailing: [
           IconButton(

@@ -31,13 +31,15 @@ samples, guidance on mobile development, and a full API reference.
    - Create A Component Of Form Screen  (Done)
 
 5. Change Menu Popup To Navigation Drawer
-6. Home Screen:
+6. Home Screen:   (Done)
    - Remove User Card         (Done)
-   - Change Home Screen UI    
 
-7. Add a few things in the app bar of about user details and use it all screens in the app.
-8. Increse Button Size in form section screen.
-9. Change UI 
+7. Add a few things in the app bar of about user details and use it all screens in the app. (Done)
+8. Increse Button Size in form section screen. (Done)
+10. increase the height of search feature.   (Done)
+11. The phone native back button fixed on the route to go back in the prev section.  (Done)
+12. In the Remarks Dialog Change Full Width Button To Text Button.   (Done)
+13. Fixed Scrollable Things  (Done)
 
 
 

@@ -25,22 +25,7 @@ class _VanInspectionScreenState extends State<VanInspectionScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: IconButton(
-                onPressed: () {
-                  context.go('/');
-                },
-                icon: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color(0xff005baa),
-                  ),
-                  child: Icon(Icons.arrow_back, color: Colors.white),
-                ),
-              ),
-            ),
+            IconButtonWidget(onTap: () => context.go('/'),),
             SizedBox(height: 15),
             TextWidget(text: "Van Inspection", textSize: 24),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'text.dart';
 
 class DefaultButton extends StatelessWidget {
   final String buttonText;
+  final Color? buttonTextColor;
   final IconData? buttonIcon;
   final VoidCallback? onTap;
 
@@ -11,6 +13,7 @@ class DefaultButton extends StatelessWidget {
     required this.buttonText,
     this.onTap,
     this.buttonIcon,
+    this.buttonTextColor
   });
 
   @override
@@ -27,9 +30,11 @@ class DefaultButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextWidget(
-            text: buttonText,
-            textSize: 18,
+          Text(
+            buttonText, style: TextStyle(
+            fontSize: 18,
+            color: buttonTextColor,
+          ),
           ),
           if (buttonIcon != null) ...[
             const SizedBox(width: 10),
@@ -82,6 +87,30 @@ class FullWidthButton extends StatelessWidget {
     );
   }
 }
+
+class IconButtonWidget extends StatelessWidget {
+  final VoidCallback onTap;
+  const IconButtonWidget({super.key, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: IconButton(
+        onPressed: onTap,
+        icon: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color(0xff005baa),
+          ),
+          child: const Icon(Icons.arrow_back, color: Colors.white, size: 20),
+        ),
+      ),
+    );
+  }
+}
+
 
 
 
